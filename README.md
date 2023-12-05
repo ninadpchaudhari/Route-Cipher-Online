@@ -11,5 +11,5 @@ Since this is a WASM thing, browser will not allow it loading local files. To de
 
 ### ToDo
 
-- Clean up the code. Wrote this in a evening, need more time. 
+- Clean up the code.  need more time. 
 - Write Test cases for the python section.
