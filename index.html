@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Route Cipher</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://pyscript.net/releases/2023.11.2/core.js"></script>
+    
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1>Route Cipher</h1>
+        <h3>@Siena College</h3>
+        <p>as per the Textbook! </p>
+
+
+        <form py-form id="encryption_form">
+            <div class="mb-3">
+                <label for="clearTextInput" class="form-label">Enter <b>Clear Text :</b></label>
+                <input type="text" class="form-control" id="clearTextInput"
+                    placeholder="Why did the chicken cross the road?" required>
+                <div id="clearTextInput_down" class="form-text">Spaces will be ignored & missing values replaced by '#'</div>
+            </div>
+            <div class="mb-3">
+                <label for="key_rowInput" class="form-label">Number of Rows:</label>
+                <input type="number" class="form-control" id="key_rowInput" placeholder="4">
+                <div id="key_rowInput_down" class="form-text">We will compute the number of columns as required</div>
+            </div>
+
+            <button py-click="generate_matrix" type="submit" class="btn btn-primary">Generate Matrix & Encrypt</button>
+        </form>
+        <div class="row justify-content-md-center">
+            <div class="col-auto">
+
+                <pre id="matrixOutput" class="mt-4 bg-light rounded" style="
+                padding: 10px;
+                font-size: 2em;
+                /* font-family: monospace; */
+                "></pre>
+            </div>
+        </div>
+        <div class="row justify-content-md-center" id="encrypted_resuls_div" style="display:none"> 
+            <div class="col-auto">
+                <div class="card" style="width: 15rem;">
+                    <img src="./assets/" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Starting Top-Right spiriling clockwise inside</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> <b>Row Dimention: </b><span id="clock_key_display"></span> </li>
+                        </ul>
+                        <div class="card-footer">
+                            <code id="cipherText_right_top_clockwise"></code>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-auto">
+                <div class="card" style="width: 15rem;">
+                    <img src="./assets/right-top-counterclock.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Starting Top-Right spiriling counter-clockwise inside</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> <b>Row Dimention: </b><span id="counter_clock_key_display"></span> </li>
+                        </ul>
+                        <!-- <p class="card-text">Counter-Clockwise Sprial in, starting from top right element with Number of rows <b>Key: </b> </p> -->
+
+                        <div class="card-footer">
+                            <code id="cipherText_right_top_counterclockwise"></code>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <script type="py" src="./main.py" config="./pyscript.json"></script>
+</body>
+</html>
